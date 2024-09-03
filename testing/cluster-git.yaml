@@ -32,3 +32,12 @@ spec:
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
+      syncPolicy:
+        managedNamespaceMetadata:
+          labels:
+            argocd.argoproj.io/managed-by: argocd
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
