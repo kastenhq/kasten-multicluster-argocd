@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: asteroids
+  namespace: argocd
+spec:
+  generators:
+  - clusters: {"bn-aks-mc01","bn-aks-mc02"}
+  template:
+    metadata:
+      name: '{{name}}-asteroids'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/fullaware/asteroids.git
+        targetRevision: HEAD
+        path: kustomize
+      destination:
+        server: '{{server}}'
+        namespace: asteroids
+      syncPolicy:
+        managedNamespaceMetadata:
+          labels:
+            argocd.argoproj.io/managed-by: argocd
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

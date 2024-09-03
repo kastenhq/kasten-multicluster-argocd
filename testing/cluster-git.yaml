@@ -1,0 +1,34 @@
+# This example demonstrates the combining of the git generator with a cluster generator
+# The expected output would be an application per git directory and a cluster (application_count = git directory * clusters)
+#
+#
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-git
+  namespace: argocd
+spec:
+  generators:
+  - matrix:
+      generators:
+        - git:
+            repoURL: https://github.com/fullaware/argocd.git
+            revision: HEAD
+            directories:
+            - path: appsets/*
+        - clusters:
+            selector:
+              matchLabels:
+                argocd.argoproj.io/secret-type: cluster
+  template:
+    metadata:
+      name: '{{path.basename}}-{{name}}'
+    spec:
+      project: default 
+      source:
+        repoURL: https://github.com/fullaware/argocd.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: '{{server}}'
+        namespace: '{{path.basename}}'
