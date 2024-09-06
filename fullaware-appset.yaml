@@ -29,6 +29,8 @@ spec:
         repoURL: https://github.com/fullaware/argocd.git
         targetRevision: HEAD
         path: '{{path}}'
+        helm:
+          releaseName: '{{path.basename}}'
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
