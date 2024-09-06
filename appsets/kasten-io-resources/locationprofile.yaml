@@ -1,0 +1,19 @@
+apiVersion: config.kio.kasten.io/v1alpha1
+kind: Profile
+metadata:
+  name: "profile-azblob-kasten-bucket"
+  namespace: kasten-io
+spec:
+  type: Location
+  locationSpec:
+    credential:
+      secretType: AzStorageAccount
+      secret:
+        apiVersion: v1
+        kind: Secret
+        name: "k10-azblob-kasten-bucket-secret"
+        namespace: kasten-io
+    type: ObjectStore
+    objectStore:
+      name: "kasten-bucket"
+      objectStoreType: AZ

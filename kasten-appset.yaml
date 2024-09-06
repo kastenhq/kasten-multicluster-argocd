@@ -5,32 +5,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: fullaware-appset
+  name: kasten-appset
   namespace: argocd
 spec:
   generators:
   - matrix:
       generators:
-        - git:
-            repoURL: https://github.com/fullaware/argocd.git
-            revision: HEAD
-            directories:
-            - path: appsets/*
         - clusters:
             selector:
               matchLabels:
                 argocd.argoproj.io/secret-type: cluster
   template:
     metadata:
-      name: '{{path.basename}}-{{name}}'
+      name: 'kasten-io-{{name}}'
     spec:
       project: default 
-      source:
-        repoURL: https://github.com/fullaware/argocd.git
-        targetRevision: HEAD
-        path: '{{path}}'
-        helm:
-          releaseName: '{{path.basename}}'
+      sources:
+        - repoURL: https://github.com/fullaware/argocd.git
+          targetRevision: HEAD
+          path: 'appset/kasten-io'
+          helm:
+            releaseName: k10
+        - repoURL: https://github.com/fullaware/argocd.git
+          targetRevision: HEAD
+          path: 'appset/kasten-io-resources'
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
