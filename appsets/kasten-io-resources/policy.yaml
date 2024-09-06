@@ -1,0 +1,42 @@
+apiVersion: config.kio.kasten.io/v1alpha1
+kind: Policy
+metadata:
+  name: pacman-backup
+  namespace: kasten-io
+spec:
+  frequency: "@daily"
+  paused: false
+  actions:
+    - action: backup
+    - action: export
+      exportParameters:
+        frequency: "@daily"
+        profile:
+          name: profile-azblob-kasten-bucket
+          namespace: kasten-io
+        exportData:
+          enabled: true
+      retention:
+        daily: 7
+        weekly: 0
+        monthly: 0
+        yearly: 0
+  backupWindow:
+    start:
+      hour: 0
+      minute: 0
+    end:
+      hour: 2
+      minute: 0
+  enableStaggering: false
+  retention:
+    daily: 4
+    weekly: 0
+    monthly: 0
+    yearly: 0
+  selector:
+    matchExpressions:
+      - key: k10.kasten.io/appNamespace
+        operator: In
+        values:
+          - bnewell-pacman

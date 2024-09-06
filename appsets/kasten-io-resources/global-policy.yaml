@@ -1,0 +1,41 @@
+apiVersion: config.kio.kasten.io/v1alpha1
+kind: Policy
+metadata:
+  name: pacman-global-policy
+  namespace: kasten-io-mc
+spec:
+  comment: ""
+  frequency: "@hourly"
+  paused: false
+  actions:
+    - action: backup
+    - action: export
+      exportParameters:
+        frequency: "@hourly"
+        migrationToken:
+          name: ""
+          namespace: ""
+        profile:
+          name: profile-azblob-kasten-bucket
+          namespace: kasten-io-mc
+        receiveString: ""
+        exportData:
+          enabled: true
+      retention:
+        hourly: 1
+        daily: 1
+        weekly: 1
+        monthly: 1
+        yearly: 1
+  retention:
+    hourly: 4
+    daily: 0
+    weekly: 0
+    monthly: 0
+    yearly: 0
+  selector:
+    matchExpressions:
+      - key: k10.kasten.io/appNamespace
+        operator: In
+        values:
+          - pacman
