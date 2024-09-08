@@ -67,6 +67,21 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 argocd admin initial-password -n argocd
 kubectl get svc argocd-server -n argocd
 ```
+## Install ArgoCD CLI [#](#install-argocd-cli)
+
+https://argo-cd.readthedocs.io/en/stable/cli_installation/#installation
+
+# ArgoCD App of App(Sets)
+## Bootstrapping ArgoCD
+
+```bash
+argocd app create apps \
+    --dest-namespace argocd \
+    --dest-server https://kubernetes.default.svc \
+    --repo https://github.com/fullaware/argocd.git \
+    --path apps  
+argocd app sync apps  
+```
 
 * OIDC Auth 
 * Ingress
