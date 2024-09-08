@@ -8,7 +8,7 @@ spec:
   - clusters: {}
   template:
     metadata:
-      name: '{{name}}-asteroids'
+      name: 'asteroids-{{name}}'
     spec:
       project: "default"
       source:
