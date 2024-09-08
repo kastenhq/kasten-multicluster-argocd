@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: asteroids
+  name: asteroids-appset
   namespace: argocd
 spec:
   generators:
-  - clusters: {"bn-aks-mc01","bn-aks-mc02"}
+  - clusters: {}
   template:
     metadata:
       name: '{{name}}-asteroids'
