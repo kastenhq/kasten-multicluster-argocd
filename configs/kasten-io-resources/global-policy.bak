@@ -3,6 +3,8 @@ kind: Policy
 metadata:
   name: pacman-global-policy
   namespace: kasten-io-mc
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   comment: ""
   frequency: "@hourly"

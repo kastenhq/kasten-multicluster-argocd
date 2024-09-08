@@ -3,6 +3,8 @@ apiVersion: config.kio.kasten.io/v1alpha1
 metadata:
   name: transform-storageclass
   namespace: kasten-io
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   comment: |
     Modify the storageClass to change storage tier.

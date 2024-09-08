@@ -3,6 +3,8 @@ kind: Profile
 metadata:
   name: "profile-azblob-kasten-bucket"
   namespace: kasten-io
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   type: Location
   locationSpec:
