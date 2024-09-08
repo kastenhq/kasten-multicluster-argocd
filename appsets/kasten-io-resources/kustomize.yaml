@@ -1,4 +1,0 @@
-resources:
-- locationprofile-secret.yaml
-- locationprofile.yaml
-- transformset.yaml

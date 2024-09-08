@@ -21,12 +21,12 @@ spec:
       sources:
         - repoURL: https://github.com/fullaware/argocd.git
           targetRevision: HEAD
-          path: 'appsets/kasten-io'
+          path: 'configs/kasten-io'
           helm:
             releaseName: k10
         - repoURL: https://github.com/fullaware/argocd.git
           targetRevision: HEAD
-          path: 'appsets/kasten-io-resources'
+          path: 'configs/kasten-io-resources'
       destination:
         server: '{{server}}'
         namespace: 'kasten-io'
