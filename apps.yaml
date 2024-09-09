@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/fullaware/argocd.git
-    path: apps
+    path: appsets
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
