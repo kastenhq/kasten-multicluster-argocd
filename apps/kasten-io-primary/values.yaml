@@ -12,5 +12,5 @@ k10:
   multicluster:
     primary:
       create: true
-      name: ""
+      name: "primary"
       ingressURL: "https://kasten.apps.fullaware.net/k10"
