@@ -9,4 +9,4 @@ resources:
   - transformset.yaml
   - primary-bootstrap.yaml
   - global-policy.yaml
-  - join-token.yaml
+  - join-token-secret.yaml
