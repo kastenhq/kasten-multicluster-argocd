@@ -1,5 +1,5 @@
-# This example demonstrates the combining of the git generator with a cluster generator
-# The expected output would be an application per git directory and a cluster (application_count = git directory * clusters)
+#  Veeam Kasten - Deploy Kasten instances to connect to Primary Multi-Cluster Manager
+#  https://docs.kasten.io/latest/multicluster/index.html
 #
 #
 apiVersion: argoproj.io/v1alpha1

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  generateName: join-token-secret-
+  namespace: kasten-io-mc
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+type: dist.kio.kasten.io/join-token

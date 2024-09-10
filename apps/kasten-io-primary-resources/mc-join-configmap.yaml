@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mc-join-config
+  namespace: kasten-io
+data:
+  cluster-name: primary
+  cluster-ingress: <optional cluster ingress>
+  primary-ingress: <optional primary ingress override>

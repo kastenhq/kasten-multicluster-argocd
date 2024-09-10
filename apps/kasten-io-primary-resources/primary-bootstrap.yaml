@@ -1,0 +1,17 @@
+apiVersion: dist.kio.kasten.io/v1alpha1
+kind: Bootstrap
+metadata:
+  name: bootstrap-primary
+  namespace: kasten-io-mc
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  clusters:
+    primary-cluster:
+        name: primary
+        primary: true
+        k10:
+            namespace: kasten-io
+            releaseName: k10
+            ingress:
+                url: "https://cluster-name.dev.kasten.io/k10"
