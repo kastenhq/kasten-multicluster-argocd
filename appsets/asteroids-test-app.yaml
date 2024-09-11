@@ -13,7 +13,7 @@ spec:
       releaseName: asteroids
   destination:
     server: https://kubernetes.default.svc
-    namespace: asteroids
+    namespace: asteroids-test
   syncPolicy:
     automated:
       prune: true
