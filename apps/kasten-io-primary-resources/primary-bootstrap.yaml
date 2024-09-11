@@ -13,5 +13,5 @@ spec:
         k10:
             namespace: kasten-io
             releaseName: k10
-            ingress:
-                url: "https://cluster-name.dev.kasten.io/k10"
+            # ingress:
+            #     url: "https://cluster-name.dev.kasten.io/k10"
