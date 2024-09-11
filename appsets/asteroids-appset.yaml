@@ -18,6 +18,15 @@ spec:
         repoURL: https://github.com/fullaware/asteroids.git
         targetRevision: HEAD
         path: kustomize
+        kustomize:
+          patches:
+          - target:
+              kind: Ingress
+              name: asteroids-app
+            patch: |-
+              - op: replace
+                path: /spec/rules/0/host
+                value: {{name}}
       destination:
         server: '{{server}}'
         namespace: asteroids
