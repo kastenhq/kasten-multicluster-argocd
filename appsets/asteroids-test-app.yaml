@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: asteroids-test
+  namespace: argocd 
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/fullaware/asteroids.git
+    targetRevision: HEAD
+    path: 'asteroids'
+    helm:
+      releaseName: asteroids
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: asteroids
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
