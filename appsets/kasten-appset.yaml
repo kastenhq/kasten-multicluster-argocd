@@ -31,7 +31,7 @@ spec:
           path: 'apps/kasten-io-resources'
       destination:
         server: '{{server}}'
-        # namespace: kasten-io
+        namespace: kasten-io
       syncPolicy:
         managedNamespaceMetadata:
           labels:
