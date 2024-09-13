@@ -5,7 +5,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: kasten-appset
+  name: kasten-config-appset
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -17,15 +17,13 @@ spec:
           argocd.argoproj.io/secret-type: cluster # Remote clusters only
   template:
     metadata:
-      name: 'kasten-io-{{name}}'
+      name: 'kasten-io-config-{{name}}'
     spec:
       project: default 
       source:
         repoURL: https://github.com/fullaware/argocd.git
         targetRevision: HEAD
-        path: 'apps/kasten-io'
-        helm:
-          releaseName: k10
+        path: 'apps/kasten-io-resources'
       destination:
         server: '{{server}}'
         namespace: kasten-io
