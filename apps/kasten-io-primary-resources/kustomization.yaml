@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - kasten-io-mc-namespace.yaml
+  - mc-join-configmap.yaml
   - locationprofile-secret.yaml
   - locationprofile.yaml
   - policy.yaml

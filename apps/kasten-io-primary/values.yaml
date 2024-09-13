@@ -13,4 +13,4 @@ k10:
     primary:
       create: true
       name: "primary"
-      ingressURL: "https://kasten.apps.fullaware.net/k10"
+      ingressURL: "https:///k10"
