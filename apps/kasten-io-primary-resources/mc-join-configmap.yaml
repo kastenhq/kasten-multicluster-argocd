@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: mc-join-config
   namespace: kasten-io
+  annotations:
+    argocd.argoproj.io/hook: PostSync
 data:
   cluster-name: primary
   cluster-ingress: <optional cluster ingress>
