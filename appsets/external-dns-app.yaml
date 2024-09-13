@@ -1,0 +1,64 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+
+  # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      
+    automated:
+      prune: true
+      selfHeal: true
+
+  source:
+    chart: external-dns
+    repoURL: https://kubernetes-sigs.github.io/external-dns
+    targetRevision: 1.15.0
+
+    # https://github.com/kubernetes-sigs/external-dns/tree/master/charts/external-dns
+    helm:
+      valuesObject:
+        fullnameOverride: external-dns
+        
+        # provider: google
+        domainFilters: ["${ARGOCD_ENV_DNS_DOMAIN}"]
+        # extraArgs: ["--google-project=${ARGOCD_ENV_DNS_PROJECT_ID}"]
+
+        # https://github.com/kubernetes-sigs/external-dns/blob/master/docs/registry/registry.md
+        txtOwnerId: "${ARGOCD_ENV_PROJECT}-k8s-${ARGOCD_ENV_NAME}"
+
+        # resources:
+        #   requests:
+        #     cpu: 75m
+        #     memory: 200Mi
+        #   limits:
+        #     cpu: 75m
+        #     memory: 200Mi
+
+        servicemonitor:
+          enabled: false # true
+          labels:
+            prometheus.io/scrap-with: kube-prometheus-stack
+
+        logFormat: json
+
+        podDisruptionBudget:
+          enabled: true
+        
+        # serviceAccount:
+        #  annotations: 
+        #    iam.gke.io/gcp-service-account: external-dns@${ARGOCD_ENV_PROJECT}.iam.gserviceaccount.com
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: external-dns
+
