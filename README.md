@@ -4,7 +4,7 @@ In Argo CD, an `ApplicationSet` is a resource that allows you to define and mana
 
 Think of an `ApplicationSet` like a "factory" that generates multiple instances of similar applications based on its configuration. Each instance is still a separate Application resource in the cluster, but they share the same properties defined within the `ApplicationSet`.
 
-
+![App of Apps](image.png)
 
 # Clusters
 
