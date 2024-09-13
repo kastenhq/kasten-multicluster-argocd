@@ -15,7 +15,7 @@ spec:
     - repoURL: https://github.com/fullaware/argocd.git
       targetRevision: HEAD
       path: 'apps/kasten-io-primary'
-      chart: kasten/k10
+      chart: 'kasten/k10'
       helm:
         releaseName: k10
     - repoURL: https://github.com/fullaware/argocd.git
