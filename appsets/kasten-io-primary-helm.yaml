@@ -25,6 +25,7 @@ spec:
     targetRevision: 7.0.8
 
     helm:
+      releaseName: k10
       valuesObject:
         fullnameOverride: k10
         externalGateway:
