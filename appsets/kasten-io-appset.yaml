@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: https://charts.kasten.io/
         targetRevision: 7.0.8
-        chart: kasten/k10
+        chart: 'k10'
         path: 'apps/kasten-io'
         helm:
           releaseName: k10
