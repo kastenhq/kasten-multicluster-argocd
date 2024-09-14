@@ -1,0 +1,55 @@
+#  Veeam Kasten - Deploy Kasten instances to connect to Primary Multi-Cluster Manager
+#  https://docs.kasten.io/latest/multicluster/index.html
+#
+#
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kasten-io-appset
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          argocd.argoproj.io/secret-type: cluster # Remote clusters only
+  template:
+    metadata:
+      name: 'kasten-io-{{name}}'
+    spec:
+      project: default 
+      source:
+        repoURL: https://charts.kasten.io/
+        targetRevision: 7.0.8
+        chart: kasten/k10
+        path: 'apps/kasten-io'
+        helm:
+          releaseName: k10
+          valuesObject:
+            fullnameOverride: k10
+            k10:
+              externalGateway:
+                create: true
+              auth:
+                basicAuth:
+                  enabled: true 
+                  htpasswd: "veeam:$apr1$SgWCd.MJ$0f0XQD15QJrnhpE.IOiP4/"
+              eula:
+                accept: true
+                company: "Veeam"
+                email: "brandon.newell@veeam.com"
+      destination:
+        server: '{{server}}'
+        namespace: kasten-io
+      syncPolicy:
+        managedNamespaceMetadata:
+          labels:
+            argocd.argoproj.io/managed-by: argocd
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - PruneLast=true
+          - CreateNamespace=true
