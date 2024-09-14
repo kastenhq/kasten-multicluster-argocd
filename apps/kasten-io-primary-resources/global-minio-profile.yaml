@@ -1,0 +1,21 @@
+apiVersion: config.kio.kasten.io/v1alpha1
+kind: Profile
+metadata:
+  name: global-minio
+  namespace: kasten-io-mc
+spec:
+  locationSpec:
+    credential:
+      secret:
+        apiVersion: v1
+        kind: secret
+        name: global-minio-secret
+        namespace: kasten-io-mc
+      secretType: AwsAccessKey
+    objectStore:
+      endpoint: http://jenkins.home.fullaware.com:9000
+      name: k10
+      objectStoreType: S3
+      region: custom
+    type: ObjectStore
+  type: Location

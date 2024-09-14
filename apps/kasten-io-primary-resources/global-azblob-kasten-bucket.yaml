@@ -1,8 +1,8 @@
 apiVersion: config.kio.kasten.io/v1alpha1
 kind: Profile
 metadata:
-  name: "profile-azblob-kasten-bucket"
-  namespace: kasten-io
+  name: "global-azblob-kasten-bucket"
+  namespace: kasten-io-mc
   annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/sync-wave: "2"
@@ -14,8 +14,8 @@ spec:
       secret:
         apiVersion: v1
         kind: Secret
-        name: "k10-azblob-kasten-bucket-secret"
-        namespace: kasten-io
+        name: "global-azblob-kasten-bucket-secret"
+        namespace: kasten-io-mc
     type: ObjectStore
     objectStore:
       name: "kasten-bucket"
