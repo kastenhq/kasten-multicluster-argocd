@@ -4,8 +4,6 @@ metadata:
   name: pacman-global-policy
   namespace: kasten-io-mc
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
-    argocd.argoproj.io/hook: PostSync
 spec:
   comment: ""
   frequency: "@hourly"
