@@ -4,8 +4,10 @@ kind: Kustomization
 resources:
   - kasten-io-mc-namespace.yaml
   - mc-join-configmap.yaml
-  - locationprofile-secret.yaml
-  - locationprofile.yaml
+  - global-azblob-kasten-bucket-secret.yaml
+  - global-azblob-kasten-bucket.yaml
+  - global-minio-profile.yaml
+  - global-minio-secret.yaml
   - policy.yaml
   - transformset.yaml
   - primary-bootstrap.yaml
