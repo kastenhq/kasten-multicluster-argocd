@@ -8,6 +8,7 @@ resources:
   - global-azblob-kasten-bucket.yaml
   - global-minio-profile.yaml
   - global-minio-secret.yaml
+  - global-distribution.yaml
   - policy.yaml
   - transformset.yaml
   - primary-bootstrap.yaml

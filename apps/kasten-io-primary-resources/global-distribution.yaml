@@ -1,0 +1,26 @@
+kind: Distribution
+apiVersion: dist.kio.kasten.io/v1alpha1
+metadata:
+  name: global
+  namespace: kasten-io-mc
+  finalizers:
+    - distributions.dist.kio.kasten.io
+spec:
+  sources:
+    - ref:
+        apiVersion: config.kio.kasten.io/v1alpha1
+        kind: Policy
+        name: pacman-global-policy
+        namespace: kasten-io-mc
+    - ref:
+        apiVersion: config.kio.kasten.io/v1alpha1
+        kind: Profile
+        name: global-azblob-kasten-bucket
+        namespace: kasten-io-mc
+    - ref:
+        apiVersion: config.kio.kasten.io/v1alpha1
+        kind: Profile
+        name: global-minio
+        namespace: kasten-io-mc
+  clusters:
+    - name: primary
