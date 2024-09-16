@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+
+  # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+
+    automated:
+      prune: true
+      selfHeal: true
+
+  source:
+    chart: vault
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: 0.28.1
+
+    # https://github.com/hashicorp/vault-helm
+    helm:
+      valuesObject:
+        fullnameOverride: vault
+        global:
+          openshift: true
+          tlsDisable: true
+        server:
+          dev:
+            enabled: true
+          route:
+            enabled: true
+            # host: vault.apps.acm-cluster.aws.kasten.io
+            host:
+            tls:
+    
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: external-secrets
