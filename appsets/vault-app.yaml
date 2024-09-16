@@ -44,8 +44,8 @@ spec:
           #  # host: vault.apps.acm-cluster.aws.kasten.io
           #  host:
           #  tls:
-        service:
-          type: "LoadBalancer"
+          service:
+            type: "LoadBalancer"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: vault
