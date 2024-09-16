@@ -40,12 +40,11 @@ spec:
           dev:
             enabled: true
           # route:
-          #  enabled: true
-          #  # host: vault.apps.acm-cluster.aws.kasten.io
-          #  host:
-          #  tls:
-          service:
-            type: "LoadBalancer"
+          #   enabled: true
+          #   host: vault.apps.acm-cluster.aws.kasten.io
+          #   tls:
+          # service:
+          #   type: "LoadBalancer"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: vault
