@@ -46,9 +46,11 @@ spec:
         ingress:
           create: true
           tls:
-            enabled: false
+            enabled: true
           class: "nginx"
           host: kasten.kasten.fullaware.net
+          secretName: k10-tls
+          name: k10-ingress
         multicluster:
           primary:
             create: true
