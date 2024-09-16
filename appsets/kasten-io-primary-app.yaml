@@ -47,7 +47,7 @@ spec:
           primary:
             create: true
             name: "primary"
-            ingressURL: "https://./k10"
+            ingressURL: "https://kasten.kasten.fullaware.net/k10"
 
   destination:
     server: "https://kubernetes.default.svc"

@@ -17,6 +17,6 @@ spec:
           service:
             name: vault
             port:
-              number: 8201
+              number: 820
         path: /
         pathType: Prefix
