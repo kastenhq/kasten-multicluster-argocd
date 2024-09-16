@@ -49,7 +49,6 @@ spec:
             enabled: false
           class: "nginx"
           host: kasten.kasten.fullaware.net
-          urlPath: "http://kasten.kasten.fullaware.net/k10"
         multicluster:
           primary:
             create: true
