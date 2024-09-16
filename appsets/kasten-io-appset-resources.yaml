@@ -5,7 +5,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: kasten-config-appset
+  name: kasten-io-appset-resources
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

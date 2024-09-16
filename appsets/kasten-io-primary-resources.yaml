@@ -5,7 +5,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kasten-io-primary
+  name: kasten-io-primary-resources
   namespace: argocd 
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -14,9 +14,7 @@ spec:
   source:
     repoURL: https://github.com/fullaware/argocd.git
     targetRevision: HEAD
-    path: 'apps/kasten-io-primary'
-    helm:
-      releaseName: k10
+    path: 'apps/kasten-io-primary-resources'
   destination:
     server: https://kubernetes.default.svc
     namespace: kasten-io

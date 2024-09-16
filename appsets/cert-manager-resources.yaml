@@ -5,7 +5,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kasten-io-primary-config
+  name: cert-manager-resources
   namespace: argocd 
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -14,10 +14,10 @@ spec:
   source:
     repoURL: https://github.com/fullaware/argocd.git
     targetRevision: HEAD
-    path: 'apps/kasten-io-primary-resources'
+    path: 'apps/cert-manager-resources'
   destination:
     server: https://kubernetes.default.svc
-    namespace: kasten-io
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true
