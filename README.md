@@ -84,8 +84,7 @@ argocd app sync apps
 ```
 
 * OIDC Auth 
-* Ingress
-* External Secrets - Azure Key Vault
-* Creating Location Profiles
+* ingress-nginx
+* external-secrets - Hashicorp Vault
 * Kasten DR policy
-* certmanager Letsencrypt
+* cert-manager Letsencrypt
