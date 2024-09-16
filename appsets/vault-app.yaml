@@ -29,16 +29,16 @@ spec:
       valuesObject:
         fullnameOverride: vault
         global:
-          openshift: true
+          # openshift: true
           tlsDisable: true
         server:
           dev:
             enabled: true
-          route:
-            enabled: true
-            # host: vault.apps.acm-cluster.aws.kasten.io
-            host:
-            tls:
+          # route:
+          #  enabled: true
+          #  # host: vault.apps.acm-cluster.aws.kasten.io
+          #  host:
+          #  tls:
     
   destination:
     server: "https://kubernetes.default.svc"
