@@ -48,7 +48,7 @@ spec:
           tls:
             enabled: false
           class: "nginx"
-          host: http://kasten.kasten.fullaware.net
+          host: kasten.kasten.fullaware.net
           urlPath: "http://kasten.kasten.fullaware.net/k10"
         multicluster:
           primary:
