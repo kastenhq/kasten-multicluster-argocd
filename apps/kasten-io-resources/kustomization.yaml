@@ -6,7 +6,7 @@ resources:
   - locationprofile.yaml
   - policy.yaml
   - transformset.yaml
-  - mc-join-secret.yaml
+  - mc-join-external-secret.yaml
   - ./policypresets
   - ./blueprints
 
