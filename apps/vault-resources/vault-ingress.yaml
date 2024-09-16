@@ -7,8 +7,13 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/issuer: "letsencrypt-prod-nginx"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - vault.kasten.fullaware.net
+    secretName: kasten-tls
   rules:
   - host: vault.kasten.fullaware.net
     http:
