@@ -47,4 +47,4 @@ spec:
     
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: external-secrets
+    namespace: vault
