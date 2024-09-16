@@ -35,7 +35,7 @@ spec:
         fullnameOverride: vault
         global:
           # openshift: true
-          tlsDisable: true
+          tlsDisable: false
         server:
           dev:
             enabled: true
