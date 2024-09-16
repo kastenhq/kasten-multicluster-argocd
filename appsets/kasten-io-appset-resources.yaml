@@ -17,7 +17,7 @@ spec:
           argocd.argoproj.io/secret-type: cluster # Remote clusters only
   template:
     metadata:
-      name: 'kasten-io-config-{{name}}'
+      name: 'kasten-io-resources-{{name}}'
     spec:
       project: default 
       source:
