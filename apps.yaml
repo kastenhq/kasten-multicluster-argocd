@@ -11,7 +11,6 @@ spec:
     repoURL: https://github.com/fullaware/argocd-kasten.git
     path: appsets
     plugin:
-      name: envsubst
       env:
         - name: ENV # prod,stage,test,dev
           value: dev
