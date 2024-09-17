@@ -14,7 +14,7 @@ First, let's deploy a couple of single node clusters in Azure to accomodate our 
 RESOURCE_GROUP="mygroup"
 CLUSTER1_NAME="mycluster-aks-01"
 CLUSTER2_NAME="mycluster-aks-02"
-OWNER="brandon.newell@veeam.com"
+OWNER="demo@veeam.com"
 EXPIREBY="2024-08-30"
 ACTIVITY="Test"
 VERSION="1.29.5"
@@ -78,7 +78,7 @@ https://argo-cd.readthedocs.io/en/stable/cli_installation/#installation
 argocd app create apps \
     --dest-namespace argocd \
     --dest-server https://kubernetes.default.svc \
-    --repo https://github.com/fullaware/argocd.git \
+    --repo https://github.com/fullaware/argocd-vault.git \
     --path appsets  
 argocd app sync apps  
 ```
