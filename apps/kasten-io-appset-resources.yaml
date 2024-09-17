@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: https://github.com/fullaware/argocd-kasten.git
         targetRevision: HEAD
-        path: 'apps/kasten-io-resources'
+        path: 'resources/kasten-io-resources'
       destination:
         server: '{{server}}'
         namespace: kasten-io
