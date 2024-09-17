@@ -20,10 +20,8 @@ spec:
     namespace: cert-manager
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
     syncOptions:
-      - PruneLast=true
       - CreateNamespace=true
     retry:
       limit: 2

@@ -16,7 +16,6 @@ spec:
       - PrunePropagationPolicy=foreground
       
     automated:
-      prune: true
       selfHeal: true
     retry:
       limit: 2
