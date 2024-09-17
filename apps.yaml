@@ -10,18 +10,6 @@ spec:
   source:
     repoURL: https://github.com/fullaware/argocd-kasten.git
     path: appsets
-    plugin:
-      env:
-        - name: ENV # prod,stage,test,dev
-          value: dev
-        - name: DNS
-          value: "kasten.fullaware.net"
-        - name: EMAIL # kasten.eula.email
-          value: "demo@veeam.com"
-        - name: COMPANY # kasten.eula.company
-          value: "Veeam"
-        - name: SOURCE_REPO # spec.source.repoURL
-          value: "https://github.com/fullaware/argocd-kasten.git"
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

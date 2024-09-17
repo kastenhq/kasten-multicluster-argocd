@@ -41,21 +41,21 @@ spec:
             htpasswd: "veeam:$apr1$SgWCd.MJ$0f0XQD15QJrnhpE.IOiP4/"
         eula:
           accept: true
-          company: ${ARGOCD_ENV_COMPANY}
-          email: ${ARGOCD_ENV_EMAIL}
+          company: "Veeam"
+          email: "demo@veeam.com"
         ingress:
           create: true
           tls:
             enabled: true
             secretName: k10-tls
           class: "nginx"
-          host: kasten.${ARGOCD_ENV_DNS}
+          host: kasten.kasten.fullaware.net
           name: k10-ingress
         multicluster:
           primary:
             create: true
             name: "primary"
-            ingressURL: "https://kasten.${ARGOCD_ENV_DNS}/k10"
+            ingressURL: "https://kasten.kasten.fullaware.net/k10"
 
   destination:
     server: "https://kubernetes.default.svc"

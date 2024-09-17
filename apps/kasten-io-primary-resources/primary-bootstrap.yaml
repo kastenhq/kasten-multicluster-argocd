@@ -13,4 +13,4 @@ spec:
             namespace: kasten-io
             releaseName: k10
             ingress:
-              url: "https://kasten.${ARGOCD_ENV_DNS}/k10"
+              url: "https://kasten.kasten.fullaware.net/k10"
