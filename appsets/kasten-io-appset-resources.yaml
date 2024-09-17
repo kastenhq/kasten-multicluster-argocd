@@ -21,7 +21,7 @@ spec:
     spec:
       project: default 
       source:
-        repoURL: https://github.com/fullaware/argocd.git
+        repoURL: ${ARGOCD_ENV_SOURCE_REPO}
         targetRevision: HEAD
         path: 'apps/kasten-io-resources'
       destination:

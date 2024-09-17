@@ -12,10 +12,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - vault.kasten.fullaware.net
+    - vault.${ARGOCD_ENV_DNS}
     secretName: kasten-tls
   rules:
-  - host: vault.kasten.fullaware.net
+  - host: vault.${ARGOCD_ENV_DNS}
     http:
       paths:
       - backend:
