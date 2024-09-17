@@ -13,7 +13,7 @@ spec:
   tls:
   - hosts:
     - vault.kasten.fullaware.net
-    secretName: kasten-tls
+    secretName: vault-tls
   rules:
   - host: vault.kasten.fullaware.net
     http:
