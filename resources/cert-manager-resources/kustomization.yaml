@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - letsencrypt-prod-nginx.yaml
+  - prod-route53-external-secret.yaml

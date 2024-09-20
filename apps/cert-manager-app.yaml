@@ -43,6 +43,13 @@ spec:
         podDisruptionBudget:
           enabled: true
 
+        # serviceAccount:
+        #   annotations:
+        #     eks.amazonaws.com/role-arn: arn:aws:iam::{$ACCOUNTID}:policy/route53-cert-manager
+
+        securityContext:
+          fsGroup: 1001
+
         prometheus:
           servicemonitor:
             enabled: false # true

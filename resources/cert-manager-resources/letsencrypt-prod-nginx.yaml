@@ -14,3 +14,21 @@ spec:
       - http01:
           ingress:
             ingressClassName: nginx
+      - selector:
+          dnsZones:
+            - "*.kasten.fullaware.net"
+        dns01:
+          route53:
+            region: us-east-1
+            # The AWS access key ID can be specified using the literal accessKeyID parameter
+            # or retrieved from a secret using the accessKeyIDSecretRef
+            # If using accessKeyID, omit the accessKeyIDSecretRef parameter and vice-versa
+            # accessKeyID: AKIAIOSFODNN7EXAMPLE
+            accessKeyIDSecretRef:
+              name: prod-route53-credentials-secret
+              key: access-key-id
+            secretAccessKeySecretRef:
+              name: prod-route53-credentials-secret
+              key: secret-access-key
+            # you can also assume a role with these credentials
+            # role: arn:aws:iam::{$ACCOUNTID}:role/route53-cert-manager
