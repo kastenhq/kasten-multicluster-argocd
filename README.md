@@ -78,13 +78,14 @@ https://argo-cd.readthedocs.io/en/stable/cli_installation/#installation
 argocd app create apps \
     --dest-namespace argocd \
     --dest-server https://kubernetes.default.svc \
-    --repo https://github.com/fullaware/argocd-vault.git \
+    --repo https://github.com/kastenhq/kasten-multicluster-argocd.git \
     --path appsets  
 argocd app sync apps  
 ```
 
+## TODO:
 * OIDC Auth 
 * ingress-nginx
-* external-secrets - Hashicorp Vault
-* Kasten DR policy
-* cert-manager Letsencrypt
+* external-secrets - Hashicorp Vault [in progress]
+* Kasten DR policy [in progress]
+* cert-manager Letsencrypt [in progress]
