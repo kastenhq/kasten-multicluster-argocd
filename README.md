@@ -1,4 +1,6 @@
-# GitOps driven deployment of Veeam Kasten to multiple clusters
+# WIP - GitOps driven deployment of Veeam Kasten to multiple clusters
+
+12.9.2024 - Will be converting into a Helm chart.
 
 In Argo CD, an `ApplicationSet` is a resource that allows you to define and manage multiple applications with similar characteristics, such as source and destination Git repositories, and deployment configurations.
 
