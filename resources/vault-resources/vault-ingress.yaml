@@ -12,10 +12,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - vault.kasten.fullaware.net
+    - vault.kasten.{{fqdn}}
     secretName: vault-tls
   rules:
-  - host: vault.kasten.fullaware.net
+  - host: vault.kasten.{{fqdn}}
     http:
       paths:
       - backend:

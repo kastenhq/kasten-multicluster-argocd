@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/fullaware/argocd-kasten.git
+    repoURL: https://github.com/kastenhq/kasten-multicluster-argocd.git
     targetRevision: HEAD
     path: 'resources/kasten-io-primary-resources'
   destination:

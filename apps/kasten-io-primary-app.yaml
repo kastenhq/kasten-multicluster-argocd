@@ -27,7 +27,7 @@ spec:
   source:
     chart: 'k10'
     repoURL: https://charts.kasten.io/
-    targetRevision: 7.0.8
+    targetRevision: 7.5.2
 
     helm:
       releaseName: k10
@@ -49,13 +49,13 @@ spec:
             enabled: true
             secretName: k10-tls
           class: "nginx"
-          host: kasten.kasten.fullaware.net
+          host: kasten.kasten.{{fqdn}}
           name: k10-ingress
         multicluster:
           primary:
             create: true
             name: "primary"
-            ingressURL: "https://kasten.kasten.fullaware.net/k10"
+            ingressURL: "https://kasten.kasten.{{fqdn}}/k10"
 
   destination:
     server: "https://kubernetes.default.svc"

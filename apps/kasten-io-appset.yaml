@@ -22,7 +22,7 @@ spec:
       project: default 
       source:
         repoURL: https://charts.kasten.io/
-        targetRevision: 7.0.8
+        targetRevision: 7.5.2
         chart: 'k10'
         
         helm:
